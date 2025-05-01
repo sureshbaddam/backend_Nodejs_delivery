@@ -9,7 +9,7 @@ const path = require('path')
 
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.Port || 4000;
 
 dotEnv.config();
 
@@ -32,7 +32,7 @@ app.use('/uploadss', express.static('uploads'));
 
 
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
   res.send("<h1>Welcome</h1>");
 });
 
