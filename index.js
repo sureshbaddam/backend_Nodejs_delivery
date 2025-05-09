@@ -6,9 +6,11 @@ const bodyparser = require("body-parser");
 const firmRoutes = require('./routes/firmRoutes')
 const productRoutes = require('./routes/productRoutes')
 const path = require('path')
+const cors = require('cors');
 
 
 const app = express();
+app.use(cors())
 const PORT = process.env.Port || 4000;
 
 dotEnv.config();
@@ -26,7 +28,7 @@ app.use(bodyparser.json());
 app.use("/vendor", vendorRoutes);
 app.use("/firm", firmRoutes);
 app.use("/product", productRoutes);
-app.use('/uploadss', express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
 
 
 
